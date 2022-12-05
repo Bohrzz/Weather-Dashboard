@@ -44,9 +44,8 @@ function getUrlFromId(id) {
   }
 }
 
- function weatherSearch(coordinates) {
-   
-     fetch(
+function weatherSearch(coordinates) {
+  fetch(
     `${baseUrl}/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`
   )
     .then(function (response) {
@@ -77,22 +76,25 @@ function getUrlFromId(id) {
       //   var lat = response.coord.lat;
       //   var lon = response.coord.lon;
       //   var coordinates = `http://api.openweathermap.org/data/2.5/`;
-        fetch( `https://api.openweathermap.org/data/3.0/onecall?${current}${weather.id}&appid=${apiKey}`)
+      fetch(
+        `${baseUrl}/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          console.log(response);
+          var fiveDay = response.list;
 
-      .then(function (response) {
-        var fiveDay = response.daily;
-        
-
-        for (var i = 0; i <= 5; i++) {
-          var currentDay = fiveDay[i];
-          $(`day ${i}title`).text(moment.unix(currentDay.dt).format("L"));
-          $(`day ${i}.fiveday-temp`).text(
-            ((currentDay.temp.day - 273.15) * 1.8 + 32).toFixed(1)
-          );
-          $(`day ${i}.fiveday-humid`).text(currentDay.humidity);
-
-        }
-      });
+          for (var i = 0; i <= 5; i++) {
+            var currentDay = fiveDay[i];
+            $(`#date-${i}`).text(moment.unix(currentDay.dt).format("L"));
+            $(`#temp-${i}`).text(
+              ((currentDay.main.temp - 273.15) * 1.8 + 32).toFixed(1)
+            );
+            $(`#humid-${i}`).text(currentDay.main.humidity);
+          }
+        });
     });
 }
 
