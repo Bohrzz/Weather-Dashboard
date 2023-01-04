@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -17,14 +18,14 @@
 
     <div>
         <div class="main-title">
-            <header class="head-container">
-                <h1>Weather Forecast</h1>
+            <header class="hero is-blue has-background-link title is-size-1 has-text-weight-bold is-italic">
+                <h1 class="hero-body container is-flex is-flex-direction-row  is-align-items-left has-text-light ">Weather Forecast</h1>
             </header>
         </div>
 
         <div id="search-section">
             <label>
-                <h2> Search for a city</h2>
+                <h2></h2>
             </label>
 
             <div>
@@ -49,19 +50,20 @@
             <div class="col-sm-12 col-md-9 order-md-2">
                 <div class="row">
 
-                    <div class="col-10 currentWeather p-0 ms-4">
-                        <div class="d-flex cityName">
+                    <div class="col-10 currentWeather p-0 ms-4 row is-flex-direction-row">
+                        <div class="d-flex cityName ">
                             <h2 id="city"></h2>
                             <h3 id="date"></h3>
                             <img id="weather-icon" />
                         </div>
-                        <p class="pt-1 pl-2">Temperature: <span id="temperature"></span> &deg;F</p>
-                        <p class="pl-2">Humidity: <span id="humidity"></span>% </p>
-                        <p class="pl-2">Wind Speed: <span id="wind"></span> MPH</p>
+                        <p class=" ">Temperature: <span id="temperature" class=""></span> &deg;F</p>
+                        <p class=" ">Humidity: <span id="humidity" class=""></span>% </p>
+                        <p class="">Wind Speed: <span id="wind" class=""></span> MPH</p>
 
                     </div>
-                    <div class="col-12 fiveDay">
-                        <h2>5 Day Forecast</h2>
+
+                    <div class="col-12 fiveDay ">
+                        <h2 class="subtitle is-3">5 Day Forecast</h2>
                         <div class="row">
                             <div class="col-sm-9 col-md-2 offset-lg-1 col-lg-2 p-1">
                                 <div class="card day-0 m-0 text-center">
